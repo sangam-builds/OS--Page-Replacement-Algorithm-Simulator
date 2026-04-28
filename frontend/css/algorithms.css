@@ -1,0 +1,340 @@
+:root {
+  --bg: #111827;
+  --bg-soft: #182131;
+  --surface: rgba(18, 26, 42, 0.82);
+  --surface-strong: rgba(20, 29, 46, 0.94);
+  --line: rgba(255, 255, 255, 0.14);
+  --text: #f4f7fb;
+  --muted: rgba(244, 247, 251, 0.74);
+  --accent: #ff5d5d;
+  --accent-2: #ffb86c;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", system-ui, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(93, 97, 255, 0.18), transparent 32%),
+    radial-gradient(circle at 85% 15%, rgba(255, 93, 93, 0.16), transparent 30%),
+    linear-gradient(180deg, #101827 0%, #12192a 48%, #0d1421 100%);
+  color: var(--text);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 52px 52px;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.backdrop {
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(18px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.backdrop-left {
+  top: 10vh;
+  left: -8rem;
+  width: 18rem;
+  height: 18rem;
+  background: rgba(255, 93, 93, 0.26);
+}
+
+.backdrop-right {
+  top: 42vh;
+  right: -6rem;
+  width: 16rem;
+  height: 16rem;
+  background: rgba(255, 184, 108, 0.2);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: rgba(21, 28, 45, 0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--text);
+  text-decoration: none;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff6b6b, #ff9f68);
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(255, 93, 93, 0.28);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  opacity: 1;
+}
+
+.nav-cta,
+.button {
+  border-radius: 999px;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.nav-cta {
+  padding: 0;
+  background: transparent;
+}
+
+.nav a.is-active,
+.nav-cta.is-active {
+  opacity: 1;
+  color: var(--accent-2);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  padding: 0.75rem 1rem;
+  font: inherit;
+}
+
+.nav-cta:hover,
+.nav-cta:focus-visible,
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.algorithms-shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.75rem 0 2.5rem;
+  flex: 1;
+}
+
+.algorithms-hero {
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.algorithms-hero h1 {
+  margin: 0.35rem 0 0.6rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.2rem, 4.8vw, 3.4rem);
+  font-weight: 600;
+}
+
+.hero-text {
+  max-width: 640px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.algorithms-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1.75rem;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.algo-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  padding: 0.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 2rem;
+}
+
+.algo-tab {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text);
+  padding: 0.85rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  border-radius: 0.9rem 0.9rem 0 0;
+  cursor: pointer;
+}
+
+.algo-tab.is-active {
+  background: linear-gradient(135deg, rgba(255, 93, 93, 0.85), rgba(255, 122, 92, 0.85));
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(255, 93, 93, 0.3);
+}
+
+.algo-content {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.algo-panel {
+  display: none;
+  background: var(--surface-strong);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.3rem;
+  padding: 1.8rem;
+  overflow: hidden;
+}
+
+.algo-panel.is-active {
+  display: block;
+}
+
+.algo-panel h2 {
+  margin: 0 0 1rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.7rem;
+}
+
+.algo-panel ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+.algo-panel li + li {
+  margin-top: 0.8rem;
+}
+
+.algo-panel img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  margin-top: auto;
+  padding: 1.5rem 0 2.5rem;
+  color: rgba(244, 247, 251, 0.66);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 980px) {
+  .topbar {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+    padding-top: 1rem;
+  }
+
+  .nav.is-open {
+    display: flex;
+  }
+
+  .algo-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar,
+  .algorithms-shell,
+  .footer {
+    width: min(100%, calc(100% - 1rem));
+  }
+
+  .topbar {
+    padding-inline: 1rem;
+  }
+
+  .algorithms-panel {
+    padding: 1.25rem;
+  }
+
+  .algo-panel {
+    padding: 1.2rem;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+}

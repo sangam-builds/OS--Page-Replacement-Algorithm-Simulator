@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Replacement Algorithms</title>
+  <meta
+    name="description"
+    content="A focused guide to page replacement algorithms with tabbed explanations."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="css/algorithms.css">
+  <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+  <div class="backdrop backdrop-left"></div>
+  <div class="backdrop backdrop-right"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html#home" aria-label="Page Replacement Algorithms home">
+      <span class="brand-mark">PR</span>
+      <span>Page Replacement Algorithms</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navLinks">
+      Menu
+    </button>
+
+    <nav class="nav" id="navLinks">
+      <a href="index.html#home">Home</a>
+      <a class="is-active" href="algorithms.html" aria-current="page">Algorithms</a>
+      <a href="about.html">About Us</a>
+      <a class="nav-cta" href="simulator.html">Simulator</a>
+    </nav>
+  </header>
+
+  <main class="algorithms-shell">
+    <section class="algorithms-hero">
+      <p class="eyebrow">Page Replacement Techniques</p>
+      <h1>Page Replacement Techniques</h1>
+      <p class="hero-text">
+        Review the core algorithms with focused, study-ready summaries.
+      </p>
+    </section>
+
+    <section class="algorithms-panel">
+      <div class="algo-tabs" role="tablist" aria-label="Algorithm tabs">
+        <button class="algo-tab is-active" type="button" data-tab="fcfs" role="tab" aria-selected="true">FCFS</button>
+        <button class="algo-tab" type="button" data-tab="opr" role="tab" aria-selected="false">OPR</button>
+        <button class="algo-tab" type="button" data-tab="lru" role="tab" aria-selected="false">LRU</button>
+        <button class="algo-tab" type="button" data-tab="mru" role="tab" aria-selected="false">LFU</button>
+      </div>
+
+      <div class="algo-content">
+        <article class="algo-panel is-active" id="tab-fcfs" role="tabpanel">
+          <h2>FCFS (First Come First Serve)</h2>
+          <ul>
+            <li>In this algorithm, a queue is maintained. The page which is assigned the frame first will be replaced first. In other words, the page which resides at the rear end of the queue will be replaced on every page fault.</li>
+            <li>However, FIFO is known to suffer from a problem known as Belady's anomaly which occurs when increasing the number of page frames results in an increase in the number of page faults for a given memory access pattern.</li>
+            <li>Belady's anomaly proves that it is possible to have more page faults when increasing the number of page frames while using the First in First Out (FIFO) page replacement algorithm.</li>
+            <li>For example, if we consider reference string 3, 2, 1, 0, 3, 2, 4, 3, 2, 1, 0, 4 and 3 slots, we get 9 total page faults, but if we increase slots to 4, we get 10 page faults.</li>
+          </ul>
+          <img src="./assets/fifo.jpg" alt="FCFS page replacement example">
+        </article>
+
+        <article class="algo-panel" id="tab-opr" role="tabpanel" aria-hidden="true">
+          <h2>OPR (Optimal Page Replacement)</h2>
+          <ul>
+            <li>Optimal page replacement algorithm replaces the page which will not be referred for so long in future.</li>
+            <li>Optimal page replacement is perfect, but it is practically impossible to implement because the pages that will not be used in future for the longest time cannot be predicted.</li>
+            <li>But it can be used as a benchmark as other algorithms are compared to this in terms of optimality.</li>
+          </ul>
+          <img src="./assets/OPR.jpg" alt="Optimal page replacement example">
+        </article>
+
+        <article class="algo-panel" id="tab-lru" role="tabpanel" aria-hidden="true">
+          <h2>LRU (Least Recently Used)</h2>
+          <ul>
+            <li>Least Recently Used algorithm replaces the page which has not been referred for a long time, i.e., the page least recently used is replaced.</li>
+            <li>The idea is based on locality of reference. It works on the concept that the pages that are recently used in previous instructions are likely to be used in next instructions too. And the page that are used least recently are likely to be used less in future.</li>
+            <li>LRU page replacement algorithm follows the stack property and so, it does not suffer from Belady's Anomaly. Hence, LRU is the preferred page replacement policy over FIFO.</li>
+          </ul>
+          <img src="./assets/LRU.jpg" alt="LRU page replacement example">
+        </article>
+
+        <article class="algo-panel" id="tab-mru" role="tabpanel" aria-hidden="true">
+          <h2>LFU (Least Frequently Used)</h2>
+          <ul>
+            <li>Least Frequently Used algorithm replaces the page which has been used the least number of times, i.e., the page with the lowest frequency count is replaced.</li>
+            <li>The idea is based on usage frequency. It works on the concept that the pages that are used more frequently in previous instructions are likely to be used again in future instructions. And the pages that are used less frequently are less likely to be used in the future.</li>
+            <li>LFU page replacement algorithm does not strictly follow the stack property, so it may suffer from Belady’s Anomaly in some cases. However, it can perform better than other algorithms when frequency of access is a strong indicator of future use.</li>
+          </ul>
+          <img src="assets/placeholder-lfu.png" alt="LFU page replacement example">
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Page Replacement Algorithms Simulator</p>
+    <p>Built with HTML, CSS, and JavaScript</p>
+  </footer>
+
+  <script src="js/algorithms.js"></script>
+</body>
+</html>

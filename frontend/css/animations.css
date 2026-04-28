@@ -1,0 +1,75 @@
+/* Animation Effects */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes highlight {
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #fff3cd;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
+.container {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.frame-block {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.frame-block.fault {
+  animation: pulse 0.5s ease-in-out;
+}
+
+.stat-card {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
