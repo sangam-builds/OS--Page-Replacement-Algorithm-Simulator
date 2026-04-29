@@ -792,6 +792,18 @@ h1.chart-title {
   gap: 0.55rem;
 }
 
+.chart-legend-label.faults {
+  color: #ff7b5c;
+}
+
+.chart-legend-label.hits {
+  color: #22d3a0;
+}
+
+.chart-legend.grouped .chart-legend-label {
+  font-weight: 600;
+}
+
 .chart-legend-dot {
   width: 0.8rem;
   height: 0.8rem;

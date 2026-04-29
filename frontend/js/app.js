@@ -666,7 +666,9 @@ function renderLegend(containerId, labels, colors) {
   labels.forEach((label, index) => {
     const item = document.createElement('div');
     item.className = 'chart-legend-item';
-    item.innerHTML = `<span class="chart-legend-dot" style="background:${colors[index % colors.length]}"></span>${label}`;
+    const color = colors[index % colors.length];
+    item.style.color = color;
+    item.innerHTML = `<span class="chart-legend-dot" style="background:${color}"></span>${label}`;
     container.appendChild(item);
   });
 }
