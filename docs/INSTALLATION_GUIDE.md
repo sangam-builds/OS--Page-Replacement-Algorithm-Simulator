@@ -21,13 +21,12 @@ cd page-replacement-simulator
 ```bash
 npm install
 ```
-
+   
 ### 3. Build C Algorithms
 
 ```bash
-cd backend/algorithms
-make
-cd ../..
+mkdir backend/algorithms/build
+gcc backend/algorithms/*.c -o backend/algorithms/build/algorithms_cli
 ```
 
 ### 4. Start the Server
