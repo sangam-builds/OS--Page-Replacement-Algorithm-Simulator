@@ -107,7 +107,7 @@
       <div class="summary-row">
         <div class="chart-card card-block">
           <h3 class="chart-title">Grouped bar - faults vs hits side by side</h3>
-          <div class="chart-canvas-wrap pie-small">
+          <div class="chart-canvas-wrap bar-full">
             <canvas id="groupbar-chart" aria-label="Grouped bar chart showing faults and hits for each algorithm"></canvas>
           </div>
           <div class="chart-legend grouped">
@@ -119,7 +119,7 @@
         <div class="chart-card card-block">
           <h3 class="chart-title">Doughnut - hit vs fault ratio</h3>
           <div class="chart-selector" id="donut-selector"></div>
-          <div class="chart-canvas-wrap compact">
+          <div class="chart-canvas-wrap compact" style="margin-top: 40px;">
             <canvas id="donut-chart" aria-label="Doughnut chart showing hit vs fault ratio for selected algorithm"></canvas>
           </div>
           <div class="chart-legend" id="donut-legend"></div>
@@ -129,7 +129,7 @@
       <div class="charts-section">
         <div class="chart-card card-block">
           <h3 class="chart-title">Pie - fault distribution</h3>
-          <div class="chart-canvas-wrap compact">
+          <div class="chart-canvas-wrap compact pie-small">
             <canvas id="pie-chart" aria-label="Pie chart showing page fault distribution across FIFO, LRU, LFU and Optimal"></canvas>
           </div>
           <div class="chart-legend" id="pie-legend"></div>

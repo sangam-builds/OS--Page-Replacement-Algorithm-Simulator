@@ -596,6 +596,8 @@ footer {
 .trace-tab.is-active {
   border-color: rgba(255, 184, 108, 0.85);
   background: rgba(255, 184, 108, 0.13);
+  color: #ffb86c;
+  font-weight: 600;
 }
 
 .error {
@@ -727,6 +729,9 @@ h1.chart-title {
 
 .chart-card {
   padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .chart-card-full {
@@ -743,7 +748,18 @@ h1.chart-title {
 }
 
 .chart-canvas-wrap.pie-small {
-  min-height: 220px;
+  min-height: 160px;
+  max-width: 360px;
+  margin-inline: auto;
+}
+
+.chart-canvas-wrap.bar-full {
+  min-height: 16rem;
+  height: 100%;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  flex: 1;
 }
 
 .chart-canvas-wrap.tall {
