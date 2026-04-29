@@ -109,6 +109,13 @@ body::before {
   background: linear-gradient(135deg, #ff6b6b, #ff9f68);
   color: #fff;
   box-shadow: 0 14px 28px rgba(255, 93, 93, 0.28);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.brand-mark i {
+  font-size: 1.05rem;
+  line-height: 1;
+  color: #fff;
 }
 
 .nav {
