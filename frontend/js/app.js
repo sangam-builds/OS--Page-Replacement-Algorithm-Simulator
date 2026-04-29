@@ -414,6 +414,7 @@ function renderTraceTabs() {
       renderTraceBody(algorithm);
       renderSelectedTabs();
       renderCharts();
+      renderTraceTabs();
     });
 
     tabs.appendChild(button);

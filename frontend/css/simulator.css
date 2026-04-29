@@ -596,6 +596,19 @@ footer {
   font: inherit;
   cursor: pointer;
   border-radius: 999px;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.preset-chip:hover,
+.preset-chip:focus-visible,
+.chart-selector button:hover,
+.chart-selector button:focus-visible,
+.trace-tab:hover,
+.trace-tab:focus-visible {
+  border-color: rgba(255, 184, 108, 0.55);
+  background: rgba(255, 184, 108, 0.1);
+  color: #ffcf9b;
+  transform: translateY(-1px);
 }
 
 .preset-chip.is-active,
