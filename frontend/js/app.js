@@ -214,36 +214,6 @@ function resetSimulation() {
   });
 }
 
-function renderTraceTabs() {
-  const tabs = document.getElementById('trace-tabs');
-  if (!tabs) {
-    return;
-  }
-
-  tabs.innerHTML = '';
-
-  ALGORITHMS.forEach((algorithm) => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'trace-tab';
-    button.textContent = algorithm;
-    if (algorithm === state.selectedAlgorithm) {
-      button.classList.add('is-active');
-    }
-
-    button.addEventListener('click', () => {
-      state.selectedAlgorithm = algorithm;
-      renderSummaryGrid();
-      renderTraceBody(algorithm);
-      renderSelectedTabs();
-      renderCharts();
-      renderTraceTabs();
-    });
-
-    tabs.appendChild(button);
-  });
-}
-
 function parseSequence(value) {
   return value
     .split(/[\s,]+/)
