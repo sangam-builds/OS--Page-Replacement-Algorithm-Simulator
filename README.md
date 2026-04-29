@@ -26,3 +26,7 @@ See [INSTALLATION_GUIDE.md](docs/INSTALLATION_GUIDE.md) for setup instructions.
 - [Algorithm Explanation](docs/ALGORITHM_EXPLANATION.md)
 - [API Documentation](docs/API_DOCUMENTATION.md)
 - [Usage Guide](docs/USAGE_GUIDE.md)
+
+## Live Demo
+
+Live demo: https://page-replacement-algorithm-simulator-ctbh.onrender.com
