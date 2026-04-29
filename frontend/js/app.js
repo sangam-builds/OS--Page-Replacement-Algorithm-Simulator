@@ -281,6 +281,15 @@ function showError(message) {
   }
 }
 
+function selectAlgorithm(algorithm) {
+  state.selectedAlgorithm = algorithm;
+  renderSummaryGrid();
+  renderTraceTabs();
+  renderTraceBody(algorithm);
+  renderSelectedTabs();
+  renderCharts();
+}
+
 function buildComparison(sequence, frameSize) {
   const comparison = {};
 
@@ -312,11 +321,13 @@ function renderSummaryGrid() {
 
   ALGORITHMS.forEach((algorithm) => {
     const summary = state.comparison[algorithm];
-    const card = document.createElement('article');
+    const card = document.createElement('button');
+    card.type = 'button';
     card.className = 'summary-card';
     if (algorithm === state.selectedAlgorithm) {
       card.classList.add('is-active');
     }
+    card.setAttribute('aria-pressed', String(algorithm === state.selectedAlgorithm));
 
     card.innerHTML = `
       <h3>${algorithm}</h3>
@@ -324,6 +335,7 @@ function renderSummaryGrid() {
       <div class="summary-meta">Page faults</div>
       <div class="summary-meta">${summary.hits} hits · ${summary.faultRate.toFixed(1)}% fault rate</div>
     `;
+    card.addEventListener('click', () => selectAlgorithm(algorithm));
 
     container.appendChild(card);
   });
@@ -379,12 +391,7 @@ function renderTraceTabs() {
     }
 
     button.addEventListener('click', () => {
-      state.selectedAlgorithm = algorithm;
-      renderSummaryGrid();
-      renderTraceBody(algorithm);
-      renderSelectedTabs();
-      renderCharts();
-      renderTraceTabs();
+      selectAlgorithm(algorithm);
     });
 
     tabs.appendChild(button);
@@ -478,12 +485,7 @@ function renderSelectedTabs() {
     }
 
     button.addEventListener('click', () => {
-      state.selectedAlgorithm = algorithm;
-      renderSummaryGrid();
-      renderTraceTabs();
-      renderTraceBody(algorithm);
-      renderSelectedTabs();
-      renderCharts();
+      selectAlgorithm(algorithm);
     });
 
     selector.appendChild(button);
